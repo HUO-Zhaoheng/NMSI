@@ -90,15 +90,15 @@
                         <mu-tab value="tab3" title="Recent"/>
                     </mu-tabs>
                 </el-col>
-                <el-col :span="4" :offset="5" style="display:flex;flex-direction:row;">
+                <el-col :span="6" :offset="3" style="display:flex;flex-direction:row;justify-content:flex-end;">
                     <mu-icon value="search" color="white" style="line-height:180%;"/>
-                    <mu-text-field class="appbar-search-field index_search" hintText="请输入搜索内容" hintTextClass="index_search"/>
+                    <mu-text-field class="appbar-search-field index_search" hintText="请输入搜索内容" hintTextClass="index_search" style="width:120px !important;"/>
                 </el-col>
             </el-row>
             <br/>
             <mu-flexbox wrap="wrap" justify="center">
                 <mu-card v-for="item in 9" :key="item" style="width:200px; height:300px; margin:20px; border-radius:2em;">
-                    <img :src="hotMovies[0].source" style="width:200px;height:300px;"/>
+                    <!--<img :src="hotMovies[0].source" style="width:200px;height:300px;"/>-->
                 </mu-card>
             </mu-flexbox>
             <mu-raised-button label="发现更多电影" class="mu-button" primary style="width:20vw;"/>
