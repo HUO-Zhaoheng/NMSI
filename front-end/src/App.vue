@@ -1,22 +1,19 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1></h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+<transition name="el-zoom-in-top">
+  <div id="signin">
+    <el-card class="signin_card">
+      <mu-avatar src="src/assets/logo.jpeg" :size="300"/><br/>
+      <div style="font-size:30px;font-weight:bold;">NMSI</div>
+      <mu-text-field label="账号" hintText="用户名/邮箱/手机"/><br/>
+      <mu-text-field label="密码" hintText="请输入密码" type="password" labelFloat/><br/>
+      <router-link to="/index">
+        <mu-raised-button label="登陆" class="md-button signin_raised-button" primary/>
+      </router-link><br/>
+      <mu-raised-button label="注册" class="md-button signin_raised-button" primary/><br/>
+      <mu-flat-button label="forget password?" class="md-button" primary hoverColor="white"/>
+    </el-card>
   </div>
+</transition>
 </template>
 
 <script>
@@ -31,30 +28,47 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
+    html, body{
+      width:100%;
+      height:100%;
+    }
+    #app{
+      width:100%;
+      height:100%;
+      background-color:#4159AA;
+    }
+    .md-button{
+      border-radius: 2em !important;
+      margin:10px;
+    }
+    #signin {
+      width:100%;
+      height:100%;
+      font-family: 'Avenir', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-align: center;
+      color: #2c3e50;
+      background-color: #4159AA;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      img{
+        border-radius:0;
+      }
+      .el-card{
+        border-radius: 1em !important;
+      }
+      .signin_card{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .signin_raised-button{
+          margin:10px;
+          width:40%;
+        }
+      }
+    }
 </style>
