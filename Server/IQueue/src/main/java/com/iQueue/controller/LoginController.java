@@ -24,8 +24,7 @@ import com.iQueue.model.User;
 import com.iQueue.model.Movie;
 @Controller
 public class LoginController {
-	private ApplicationContext context = 
-			new ClassPathXmlApplicationContext("applicationContext.xml");
+	private ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
 
 	@RequestMapping(value="/initData", method = RequestMethod.POST)
 	@ResponseBody
