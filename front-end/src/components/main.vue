@@ -157,7 +157,7 @@
                     </div>
 
                     <el-row v-for="item in 12" :key="item">
-                            <mu-icon @click="book(_item, item)" v-for="_item in 22" value="movie" :size="24" :key="_item" :class="{seat:fuck[item + _item]}"/>
+                            <mu-icon @click="book(_item, item)" v-for="_item in 22" value="movie" :size="24" :key="_item" :class="{seat:fuck[22*(item-1) + _item-1]}"/>
                     </el-row>
                     <el-button @click="finishBooking">确认购票</el-button>
                 </mu-card>
@@ -193,7 +193,7 @@
                 cinema:"",
                 cinemas:["正佳广场","飞扬"],
                 showBooking:false,
-                fuck:new Array(264)
+                fuck:[]
             }
         },
         methods: {
@@ -250,6 +250,7 @@
             bookMovie(e){  
                 e.stopPropagation()
                 this.showBooking = true
+                this.showDialog = false
             },
             openDialog(val){
                 this.dialog = val
@@ -262,7 +263,11 @@
                 })
             },
             book(val, v){
-                console.log(val, v)
+                let temp = []
+                for (let i = 0; i < 264; i++)
+                    if (i == (val+22*(v-1)-1) || this.fuck[i] == true)
+                        temp[i] = true
+                this.fuck = temp
             }
         },
         created: function() {
