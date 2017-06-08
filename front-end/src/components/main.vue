@@ -157,7 +157,7 @@
                     </div>
 
                     <el-row v-for="item in 12" :key="item">
-                            <mu-icon @click="book" v-for="_item in 22" value="movie" :size="24"/>
+                            <mu-icon @click="book(_item, item)" v-for="_item in 22" value="movie" :size="24" :key="_item" :class="{seat:fuck[item + _item]}"/>
                     </el-row>
                     <el-button @click="finishBooking">确认购票</el-button>
                 </mu-card>
@@ -193,7 +193,7 @@
                 cinema:"",
                 cinemas:["正佳广场","飞扬"],
                 showBooking:false,
-                seat:new Array(264)
+                fuck:new Array(264)
             }
         },
         methods: {
@@ -261,11 +261,14 @@
                     type:"success"
                 })
             },
-            book(val){
-                
+            book(val, v){
+                console.log(val, v)
             }
         },
         created: function() {
+            for (let i = 0; i < 264; i++) {
+                this.fuck[i] = false
+            }
             var f = (data, type, count) => {
                 data.forEach((element,index) => {
                     if (type == "USHotMovies") {
@@ -338,6 +341,9 @@
 </script>
 
 <style lang="scss">
+    .seat{
+        color:red;
+    }
     .el-dialog--small{
         width:80% !important;
     }
