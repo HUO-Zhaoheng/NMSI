@@ -46,7 +46,4 @@
       class="com.iQueue.dao.MovieDao">
       <property name="dataSource"  ref="dataSource" />    
    </bean>
-   
-
-	
 </beans>
