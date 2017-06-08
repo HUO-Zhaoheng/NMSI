@@ -353,10 +353,6 @@
         width:80% !important;
     }
     .dialog{
-        // background-color: #1E2350 !important;
-        .el-dialog__title{
-            // color:white;
-        }
         .index_dialog_card{
             position: relative;
             .index_dialog_card_trailer-button{
