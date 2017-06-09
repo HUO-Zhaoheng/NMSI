@@ -23,6 +23,8 @@
 
 ### Inception
 
+### Inception
+
 * Week1 ~ Week3
 
     开展线下会议，组建团队，完成调查报告，会议纪要，项目愿景和产品特性
