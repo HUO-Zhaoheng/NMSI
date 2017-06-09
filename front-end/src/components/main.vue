@@ -2,22 +2,17 @@
     <el-collapse-transition>
         <div id="index" style="padding-top:10px;">
             <el-row :gutter="20">
-                <el-col :span="6" :offset="14">
+                <el-col :span="6" :offset="18">
                     <mu-tabs :value="headerTab" @change="changeHeaderTab" style="background-color:#1E2339;">
                         <mu-tab value="home" title="Home"/>
                         <mu-tab v-if="isRegister" value="profile" title="Profile"/>
                     </mu-tabs>
                 </el-col>
-                <el-col :span="4" :offset="0">
-                    <router-link to="/">
-                        <mu-raised-button label="登陆 | 注册" class="mu-button" primary/>
-                    </router-link>
-                </el-col>
             </el-row>
             <br/>
             <div style="text-align:center; color:white; font-size:2em;"> Your weekend buddy for this week </div>
             <br/>
-            <el-carousel type="card" height="30vw" :autoplay="false" @change="handleSelect" style="margin:0 15% 0 15%;">
+            <el-carousel type="card" height="35vw" :autoplay="false" @change="handleSelect" style="margin:0 15% 0 15%;">
                 <el-carousel-item v-for="(item, index) in hotMovies" :key="index">
                     <mu-card @click.native="showDetail(index)" class="index_carousel_card" style="background-color:black;margin:0; padding:0; height:100%;">
                         <img style="width:100%;height:100%;" :src="item.source">
@@ -103,10 +98,6 @@
                             <div style="text-align:left; padding-left:0px;width:60%;">
                                 <span style="color:#D4D1D3;">Genre</span><br/>
                                 <span v-for="(genre,index) in dialog.genres" :key="index">{{genre}}&nbsp;</span>
-                                <div class="index_dialog_card_trailer-button">
-                                    <mu-float-button @click="bookMovie" icon="info" secondary/>
-                                    <div>购票</div>
-                                </div>
                             </div>
                         </div>
                         <mu-divider style="width:100%; margin:0 auto;" :shallowInset="true"/>
@@ -193,7 +184,8 @@
                 cinema:"",
                 cinemas:["正佳广场","飞扬"],
                 showBooking:false,
-                fuck:[]
+                fuck:[],
+                tempBooking:[]
             }
         },
         methods: {
@@ -243,6 +235,7 @@
                     this.hotMovies[i].wider = false
             },
             showDetail(index){
+                this.dialog = this.hotMovies[index]
                 if (this.img == index) {
                     this.hotMovies[this.img].wider = !this.hotMovies[this.img].wider
                 }
@@ -253,6 +246,7 @@
                 this.showDialog = false
             },
             openDialog(val){
+                console.log(val)
                 this.dialog = val
                 this.showDialog = true
             },
