@@ -61,4 +61,6 @@
 
 ## demo
 
-![demo](https://github.com/distantmars/NMSI/blob/master/demo.gif)
+### signin
+
+![demo](https://github.com/distantmars/NMSI/blob/master/signin.gif)
