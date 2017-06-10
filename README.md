@@ -64,3 +64,11 @@
 ### signin
 
 ![demo](https://github.com/distantmars/NMSI/blob/master/signin.gif)
+
+### main page
+
+![demo](https://github.com/distantmars/NMSI/blob/master/main.gif)
+
+### seat selecting
+
+![demo](https://github.com/distantmars/NMSI/blob/master/booking.gif)
