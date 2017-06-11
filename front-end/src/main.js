@@ -8,6 +8,8 @@ import 'swiper/dist/css/swiper.css'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
+Vue.use(VueResource)  
 Vue.use(VueRouter)
 Vue.use(ElementUI)
 Vue.use(MuseUI)

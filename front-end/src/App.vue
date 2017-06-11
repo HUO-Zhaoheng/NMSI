@@ -4,12 +4,11 @@
     <el-card class="signin_card">
       <mu-avatar src="src/assets/logo.jpeg" :size="300"/><br/>
       <div style="font-size:30px;font-weight:bold;">NMSI</div>
-      <mu-text-field label="账号" hintText="用户名/邮箱/手机"/><br/>
-      <mu-text-field label="密码" hintText="请输入密码" type="password" labelFloat/><br/>
-      <router-link to="/index">
-        <mu-raised-button label="登陆" class="md-button signin_raised-button" primary/>
-      </router-link><br/>
-      <mu-raised-button label="注册" class="md-button signin_raised-button" primary/><br/>
+      <mu-text-field v-model="username" label="账号" hintText="用户名/邮箱/手机"/><br/>
+      <mu-text-field v-model="password" label="密码" hintText="请输入密码" type="password" labelFloat/><br/>
+      <!--<router-link to="/index">-->
+        <mu-raised-button @click="signIn" label="登陆" class="md-button signin_raised-button" primary/><br>
+      <!--</router-link><br/>-->
       <mu-flat-button label="forget password?" class="md-button" primary hoverColor="white"/>
     </el-card>
   </div>
@@ -17,11 +16,27 @@
 </template>
 
 <script>
+import router from 'vue-router'
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      password:"",
+      username:""
+    }
+  },
+  created: function() {
+    if (!localStorage.booking)
+      localStorage.booking = []
+  },
+  methods: {
+    signIn() {
+      if (this.username == "admin" && this.password == "123")
+        this.$router.push("/index")
+      else this.$message({
+        message:"用户名或密码不正确",
+        type:"error"
+      })
     }
   }
 }
